@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Main from './Main';
-import { Negative, Positive } from './ItemsMsg';
+import { Negative, Positive, Button } from './ItemsMsg';
 
-function Parent() {
+function Parent(props) {
     const [ itemsList, setItemsList ] = useState([]);
     const [ buffer, setBuffer ] = useState('');
+    const mode = props.mode;
 
     function setInputBuffer(value) {
         setBuffer(value);
@@ -25,8 +26,8 @@ function Parent() {
             {itemsList.length ? <Positive>You have items in your list</Positive> : <Negative>Your list is empty</Negative>}
             <input onChange={event =>
                  setInputBuffer(event.target.value)} />
-            <button onClick={() =>
-                 putInItemsList()}>Add to list</button>
+            <Button bcg={mode} onClick={() =>
+                 putInItemsList()}>Add to list</Button>
             <Main list={itemsList} />
         </div>
     );

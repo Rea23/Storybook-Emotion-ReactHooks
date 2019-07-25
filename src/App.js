@@ -50,7 +50,7 @@ function App() {
         <h2>Toggle the switch for some magic</h2>
       </main>
       <Header />
-      <Parent />
+      <Parent mode={darkMode} />
     </div>
   );
 }
