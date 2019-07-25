@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import { css, keyframes } from 'emotion';
+import { keyframes } from 'emotion';
 
 export const Negative = styled.div`
   background-color: red;
   font-weight: bold;
+  color: ${props => (props.prop ? "blue" : "yellow")};
   `
 export const Positive = styled.div`
 background-color: green;

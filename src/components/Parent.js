@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Main from './Main';
-import { Negative, SomeComp, Positive } from './ItemsMsg';
+import { Negative, Positive } from './ItemsMsg';
 
 function Parent() {
     const [ itemsList, setItemsList ] = useState([]);
@@ -22,9 +22,7 @@ function Parent() {
 
     return(
         <div>
-            {itemsList.length ? <Positive>Has items</Positive> : <Negative>Empty</Negative>}
-            <h4>Items:</h4>
-            <p>{itemsList.toString()}</p>
+            {itemsList.length ? <Positive>You have items in your list</Positive> : <Negative>Your list is empty</Negative>}
             <input onChange={event =>
                  setInputBuffer(event.target.value)} />
             <button onClick={() =>

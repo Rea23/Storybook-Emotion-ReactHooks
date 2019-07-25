@@ -11,5 +11,7 @@ export const actions = {
 
 storiesOf('Taskbox|ItemsMsg', module)
     .addDecorator(DecFn => <div style={{textAlign: 'center', color:'white', padding:'20px'}}>{DecFn()}</div>)
-    .add('Negative', () => <Negative {...actions}>Negative</Negative>)
+    .add('Negative', () => <Negative prop {...actions}>Negative</Negative>)
     .add('Positive', () => <Positive {...actions}>Positive</Positive>)
+
+    
