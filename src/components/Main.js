@@ -1,34 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Negative, SomeComp, Positive } from './ItemsMsg';
+import Item from './Item';
 
-function Main(sent) {
-    const getCount = sent.count;
-    const [ count, setCount ] = useState(getCount);
-    const [ itemsList, setItemsList ] = useState([]);
-    const [ buffer, setBuffer ] = useState('');
-
-    useEffect(() => {
-        document.title = "Online";
-        return () => document.title = "Offline";
-    });
-
-    function setInputBuffer(value) {
-        setBuffer(value);
-    }
+function Main(props) {
+    // console.log(props.list)
+    // console.log(typeof(props.list))
+    // console.log(typeof(newP))
     return(
         <div>
-            <h4>{getCount}</h4>
-            <p>You clicked {count} times!</p>
-            <button onClick={() => setCount( count + 1 )}>Count</button>
-            {itemsList.length ? <Positive>Has items</Positive> : <Negative>Empty</Negative>}
-            <h4>Items:</h4>
-            <p>{itemsList.toString()}</p>
-            <input onChange={event =>
-                 setInputBuffer(event.target.value)} />
-            <button onClick={() =>
-                 setItemsList([...itemsList, buffer])}>Add to list</button>
-            <SomeComp>somecomp text</SomeComp>
+            <SomeComp>Items:</SomeComp>
+            {/* {props.list.length > 0 ? props.list.map(item => <Item p={item} key={item.toString()} />) : <p>none</p>} */}
+            {props.list.map(item => <Item p={item} key={item.toString()} />)}
+            
         </div>
     );
 }

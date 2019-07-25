@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 
 import Main from './Main';
 
+export const mockList = ['item1', 'item2']
+
 export const actions = {
     onmouseover: action('on mouse over'),
     onmouseout: action('on mouse over'),
@@ -11,5 +13,5 @@ export const actions = {
 }
 
 storiesOf('Taskbox|Main', module)
-    .add('without emotion', () => <Main {...actions} />)
-    .add('with emotion', () => <Main />)
+    .add('without emotion', () => <Main list={mockList} {...actions} />)
+    .add('with emotion', () => <Main list={mockList} />)
