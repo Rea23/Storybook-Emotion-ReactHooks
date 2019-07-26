@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
+import { keyframes } from "emotion";
 
 export const Negative = styled.div`
   background-color: red;
@@ -24,5 +23,6 @@ export const SomeComp = styled.div({
 
 export const Bounce = keyframes`
 from, to{ transform: translateY(0); }
+25%, 75%{transform: scale(1.5);}
 50%{transform: translateY(-30px);}
 `;
